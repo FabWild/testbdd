@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        chatbot.belongsTo(models.user);
+        // chatbot.belongsTo(models.user);
+        chatbot.belongsTo(models.user, {through: 'user_has_chatbot', foreignKey: 'chatbotId'});
       }
     }
   });
