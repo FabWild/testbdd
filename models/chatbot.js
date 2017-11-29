@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     urlapi: DataTypes.STRING
   });
 
-  chatbot.associate = function(models) {
+  Chatbot.associate = function(models) {
     // associations can be defined here
     // chatbot.belongsTo(models.user);
-    chatbot.belongsTo(models.user, {through: 'user_has_chatbot', foreignKey: 'chatbotId'});
+    Chatbot.belongsTo(models.User);
   };
 
   return Chatbot;
