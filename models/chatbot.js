@@ -4,14 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     urlapi: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-        // chatbot.belongsTo(models.user);
-        chatbot.belongsTo(models.user, {through: 'user_has_chatbot', foreignKey: 'chatbotId'});
-      }
-    }
   });
+
+  chatbot.associate = function(models) {
+    // associations can be defined here
+    // chatbot.belongsTo(models.user);
+    chatbot.belongsTo(models.user, {through: 'user_has_chatbot', foreignKey: 'chatbotId'});
+  };
+
   return Chatbot;
 };
